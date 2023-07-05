@@ -16,11 +16,11 @@ export default class KMSService {
 
   kmsSigner = new KMSSigner();
 
-  async connectKMS(alias: string): Promise<AccountKMS | null> {
+  async connectKMS(alias: string): Promise<AccountKMS | Error> {
     // 1. get pubkey by alias
     const pubKey = await this.keypairSvc.getPubKeyByAliasName(alias);
     // 2. if not found > create key and alias
-    if (!pubKey) return null;
+    if (!pubKey) return new Error('can not get PubKey By Alias Name');
 
     // 3. generate address by pubKey
     const { systemAddress, pubkey } = this.kmsSigner.getAddress(pubKey);
@@ -32,14 +32,14 @@ export default class KMSService {
     };
   }
 
-  async createAlias(alias: string): Promise<AccountKMS | null> {
+  async createAlias(alias: string): Promise<AccountKMS | Error> {
     // 1. get pubkey by alias
     const pubKey = await this.keypairSvc.getPubKeyByAliasName(alias);
     // 2. if not found > create key and alias
     if (!pubKey) {
       const createResult = await this.keypairSvc.createKMSKey(alias);
 
-      if (createResult?.alias) return null;
+      if (createResult?.alias) return new Error('can not create KMS key');
     }
     // 3. generate address by pubKey
     const { systemAddress, pubkey } = this.kmsSigner.getAddress(pubKey);
@@ -51,7 +51,7 @@ export default class KMSService {
     };
   }
 
-  async signWithKMS(signer: string, signDoc: SignDoc): Promise<Secp256k1Signature | null> {
+  async signWithKMS(signer: string, signDoc: SignDoc): Promise<Secp256k1Signature | Error> {
     try {
       const signBytes = makeSignBytes(signDoc);
       const hashedMessage = sha256(signBytes);
@@ -59,10 +59,10 @@ export default class KMSService {
       if (rs) {
         return new Secp256k1Signature(rs.rBuff, rs.sBuff);
       }
-      return null;
+      return new Error('can not sign by kms');
     } catch (error) {
       console.error('signWithKMS error', error);
-      return null;
+      return error;
     }
   }
 }
