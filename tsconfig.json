@@ -5,6 +5,7 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "experimentalDecorators": true,
+    "declaration": true,
     "esModuleInterop":true,
     "target": "es2020",
     "lib": [

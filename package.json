@@ -1,14 +1,17 @@
 {
-  "name": "aura-decorators",
-  "version": "0.0.1",
+  "name": "@thienlk/aura-kms",
+  "version": "0.0.2",
   "description": "",
-  "main": "build/src/index.js",
-  "types": "build/src/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "files": [
-    "build/src"
+    "dist/src"
   ],
   "license": "Apache-2.0",
-  "keywords": [],
+  "keywords": [
+    "kms",
+    "aura"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "gts lint",
@@ -53,6 +56,7 @@
     "@cosmjs/stargate": "^0.29.5",
     "@cosmjs/tendermint-rpc": "^0.30.1",
     "@cosmjs/utils": "^0.30.1",
+    "@types/ledgerhq__hw-transport": "^4.21.4",
     "asn1.js": "^5.4.1",
     "asn1js": "^3.0.5",
     "aws-sdk": "^2.1410.0",
@@ -60,5 +64,17 @@
     "cosmjs-types": "^0.8.0",
     "cosmwasm": "^1.1.1",
     "strip-hex-prefix": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThienLK1/aura-kms.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ThienLK1/aura-kms/issues"
+  },
+  "homepage": "https://github.com/ThienLK1/aura-kms#readme",
+  "directories": {
+    "lib": "lib"
   }
 }

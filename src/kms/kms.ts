@@ -37,3 +37,5 @@ export default class KMSSigner {
     return { systemAddress, pubkey };
   }
 }
+
+export { KMSSigner };

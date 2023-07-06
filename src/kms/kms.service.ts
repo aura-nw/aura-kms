@@ -4,8 +4,8 @@ import { makeSignBytes } from '@cosmjs/proto-signing';
 import { SignDoc } from 'cosmjs-types/cosmos/tx/v1beta1/tx';
 import { Secp256k1Signature, sha256 } from '@cosmjs/crypto';
 import { AccountKMS } from './kms.types';
-import KeyPairManagement from './keypairManagement';
-import KMSSigner from './kms';
+import {KeyPairManagement} from './keypairManagement';
+import {KMSSigner} from './kms';
 
 export default class KMSService {
   public keypairSvc;
@@ -66,3 +66,5 @@ export default class KMSService {
     }
   }
 }
+
+export { KMSService };
