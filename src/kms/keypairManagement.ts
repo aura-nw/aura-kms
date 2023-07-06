@@ -27,7 +27,6 @@ export default class KeyPairManagement {
       return pubKey;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      console.log('getPubKeyByAliasName', error);
       if (error.code && error.code === 'NotFoundException') return null;
       throw error;
     }
@@ -98,3 +97,5 @@ export default class KeyPairManagement {
     return `alias/${aliasName}`;
   }
 }
+
+export { KeyPairManagement };
