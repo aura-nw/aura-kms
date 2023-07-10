@@ -1,5 +1,5 @@
 {
-  "name": "@thienlk/aura-kms",
+  "name": "@aura-nw/aura-kms",
   "version": "0.0.2",
   "description": "",
   "main": "dist/src/index.js",
@@ -64,10 +64,6 @@
     "cosmjs-types": "^0.8.0",
     "cosmwasm": "^1.1.1",
     "strip-hex-prefix": "^1.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ThienLK1/aura-kms.git"
   },
   "author": "",
   "bugs": {
