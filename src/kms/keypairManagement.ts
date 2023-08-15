@@ -92,6 +92,22 @@ export default class KeyPairManagement {
     };
     return this.kms.createAlias(params).promise();
   }
+  
+  async encrypt(KeyId: string, Plaintext: string) {
+    const params: KMS.EncryptRequest = {
+      KeyId,
+      Plaintext
+    };
+    return this.kms.encrypt(params).promise();
+  }
+  
+  async decrypt(KeyId: string, CiphertextBlob: string) {
+    const params: KMS.DecryptRequest = {
+      KeyId,
+      CiphertextBlob
+    };
+    return this.kms.decrypt(params).promise();
+  }
 
   stringToAlias(aliasName: string) {
     return `alias/${aliasName}`;
