@@ -6,6 +6,7 @@ import { Secp256k1Signature, sha256 } from '@cosmjs/crypto';
 import { AccountKMS } from './kms.types';
 import { KeyPairManagement } from './keypairManagement';
 import { KMSSigner } from './kms';
+import KMS from 'aws-sdk/clients/kms';
 
 export default class KMSService {
   public keypairSvc;
@@ -66,7 +67,7 @@ export default class KMSService {
     }
   }
 
-  async encrypt(KeyId: string, Plaintext: string) {
+  async encrypt(KeyId: string, Plaintext: KMS.PlaintextType) {
     try {
       const rs = await this.keypairSvc.encrypt(KeyId, Plaintext);
       return rs;
@@ -76,7 +77,7 @@ export default class KMSService {
     }
   }
  
-  async decrypt(KeyId: string, CiphertextBlob: string) {
+  async decrypt(KeyId: string, CiphertextBlob: KMS.CiphertextType) {
     try {
       const rs = await this.keypairSvc.decrypt(KeyId, CiphertextBlob);
       return rs;
