@@ -93,7 +93,7 @@ export default class KeyPairManagement {
     return this.kms.createAlias(params).promise();
   }
   
-  async encrypt(KeyId: string, Plaintext: string) {
+  async encrypt(KeyId: string, Plaintext: KMS.PlaintextType) {
     const params: KMS.EncryptRequest = {
       KeyId,
       Plaintext
@@ -101,7 +101,7 @@ export default class KeyPairManagement {
     return this.kms.encrypt(params).promise();
   }
   
-  async decrypt(KeyId: string, CiphertextBlob: string) {
+  async decrypt(KeyId: string, CiphertextBlob: KMS.CiphertextType) {
     const params: KMS.DecryptRequest = {
       KeyId,
       CiphertextBlob
