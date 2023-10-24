@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { toBase64 } from 'cosmwasm';
 import { makeSignBytes } from '@cosmjs/proto-signing';
 import { SignDoc } from 'cosmjs-types/cosmos/tx/v1beta1/tx';
 import { Secp256k1Signature, sha256 } from '@cosmjs/crypto';
@@ -7,6 +6,7 @@ import { AccountKMS } from './kms.types';
 import { KeyPairManagement } from './keypairManagement';
 import { KMSSigner } from './kms';
 import KMS from 'aws-sdk/clients/kms';
+import { toBase64 } from '@cosmjs/encoding';
 
 export default class KMSService {
   public keypairSvc;
@@ -76,7 +76,7 @@ export default class KMSService {
       return error;
     }
   }
- 
+
   async decrypt(KeyId: string, CiphertextBlob: KMS.CiphertextType) {
     try {
       const rs = await this.keypairSvc.decrypt(KeyId, CiphertextBlob);
