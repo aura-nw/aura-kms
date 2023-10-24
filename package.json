@@ -1,6 +1,6 @@
 {
   "name": "@aura-nw/aura-kms",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -52,6 +52,7 @@
     "@cosmjs/crypto": "^0.31.1",
     "@cosmjs/encoding": "^0.31.1",
     "@cosmjs/json-rpc": "^0.31.1",
+    "@cosmjs/math": "^0.31.1",
     "@cosmjs/proto-signing": "^0.31.1",
     "@cosmjs/stargate": "^0.31.1",
     "@cosmjs/tendermint-rpc": "^0.31.1",
@@ -62,7 +63,6 @@
     "aws-sdk": "^2.1410.0",
     "bignumber.js": "^9.1.1",
     "cosmjs-types": "^0.8.0",
-    "cosmwasm": "^1.1.1",
     "strip-hex-prefix": "^1.0.0"
   },
   "author": "",
